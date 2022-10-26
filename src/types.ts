@@ -6,6 +6,10 @@ export interface Montre {
     boitier_sup?: string;
   }
 
+  export interface MontreAccueil {
+    boitier_sup?: string;
+  }
+
   export const colors = {
     "#CCAEDB": "Magenta",
     "#B0B2DD": "Bleu",
@@ -13,11 +17,8 @@ export interface Montre {
     "#DACCAD": "Jaune",
     "#C4A18A": "Marron",
     "#D1DCAF": "Vert",
-    "#FF00FF": "Magenta",
     "#424242": "NoirP",
     "#FFFFFF": "BlanP",
-    "#030305": "NoirM",
-    "#FEFEFE": "BlancM",
   };
 
   export const materiaux = [

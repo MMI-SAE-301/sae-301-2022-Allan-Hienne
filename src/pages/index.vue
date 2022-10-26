@@ -24,7 +24,6 @@ import carousel from "../components/carousel.vue";
         </h1>
     </div>
 
-    
 </template>
 <style>
 
