@@ -11,5 +11,6 @@ module.exports = {
     require("@tailwindcss/forms"),
     formKitTailwind,
     require("@headlessui/tailwindcss"),
+    require("daisyui"),
   ],
 };

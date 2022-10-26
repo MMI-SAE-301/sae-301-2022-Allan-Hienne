@@ -1,7 +1,13 @@
+<script setup lang="ts">
+import MontreSvg from "@/components/MontreSvg.vue";
+import type { Montre } from "@/types";
+import carousel from "./carousel.vue"
+</script>
+
+
+
 <template>
-  <section>
-    <h1 class="text-2xl">
-      Bonjour<code class="font-mono text-base">/src/pages/index.vue</code>
-    </h1>
-  </section>
+    <div>
+        <carousel></carousel>
+    </div>
 </template>
