@@ -6,9 +6,9 @@
    <h1 class="text-white okine_bold text-xl">Travail réalisé dans le cadre d’un exercice pédagogique<br/>
     au département MMI de Montbéliard</h1>
    <div class="flex gap-8">
-    <img src="../assets/img/Vector.svg" alt="">
-    <img src="../assets/img/MMI_dut_small_white 2.png" alt="">
-    <img src="../assets/img/Vector-1.svg" alt="">
+    <img src="../assets/img/Vector.svg" alt="facebook">
+    <img src="../assets/img/MMI_dut_small_white 2.png" alt="logo_mmi">
+    <img src="../assets/img/Vector-1.svg" alt="insta">
    </div>
     </div> 
 </footer>
