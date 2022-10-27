@@ -15,3 +15,25 @@
       </div>
     </div>
 </template>
+
+<style>
+.okine_bold {
+    font-family: 'made_okine_sans_personal_uBlk';
+}
+
+.okine_bold_outline {
+    font-family: 'made_okine_sans_persBdoutline';
+}
+
+.okine_medium {
+    font-family: 'made_okine_sans_personal_usMd';
+}
+
+.bandeau {
+    font-size: 42px;
+}
+
+.test {
+    color: red;
+}
+</style>

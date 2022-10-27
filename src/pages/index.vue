@@ -33,16 +33,16 @@ const montre = ref<Montre>(props.data ?? {});
     <carousel />
 
     <div class="flex">
-        <h1 class="uppercase bold bandeau okine_bold">
+        <h1 class="uppercase bold bandeau okine_bold text-black">
             Restez Connecté
         </h1>
-        <h1 class="uppercase bold bandeau okine_bold_outline">
+        <h1 class="uppercase bold bandeau okine_bold_outline text-black">
             Restez Connecté
         </h1>
-        <h1 class="uppercase bold bandeau okine_bold">
+        <h1 class="uppercase bold bandeau okine_bold text-black">
             Restez Connecté
         </h1>
-        <h1 class="uppercase bold bandeau okine_bold_outline">
+        <h1 class="uppercase bold bandeau okine_bold_outline text-black">
             Restez Connecté
         </h1>
     </div>
@@ -62,7 +62,7 @@ const montre = ref<Montre>(props.data ?? {});
 
 <div class="flex justify-evenly mt-20">
     <div class="p-8 w-650">
-    <h1 class="font-cano mb-8 uppercase text-3xl bold">PERSONNALISEZ VOTRE MONTRE CONNECTé pour en obtenir une unique</h1>
+    <h1 class="font-cano mb-8 uppercase text-3xl bold text-black">PERSONNALISEZ VOTRE MONTRE CONNECTé pour en obtenir une unique</h1>
     <h1 class="okine_bold_outline text-2xl">Exemple de personnalisation</h1>
         <FormKit name="bracelet_sup" label="bracelet supérieur" value="#FFFFFF" type="radio" :options="colors" legend-class="okine_bold uppercase text-lg" 
             :sections-schema="{
@@ -83,6 +83,14 @@ const montre = ref<Montre>(props.data ?? {});
         </div>
 
     </FormKit>
+
+<div class="flex flex-col justify-center text-center">
+    <p class="font-cano mb-8 uppercase text-xl bold text-black">Rendez-vous sur la page de personnalisation complète</p>
+
+    <button class="p-2 px-12 mx-auto mb-16 rounded text-black okine_bold uppercase border-2 border-black hover:bg-black hover:text-white">
+        <router-link to="/perso">C’est parti</router-link> 
+    </button>
+</div>
 
 </template>
 <style>

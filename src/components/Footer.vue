@@ -2,8 +2,36 @@
 <template>
 <footer class="p-10 bg-black">
  
-    <div class="flex">
-   <h1 class="text-white okine-bold">Travail réalisé dans le cadre d’un exercice pédagogique au département MMI de Montbéliard</h1>
+    <div class="flex items-center justify-center gap-48">
+   <h1 class="text-white okine_bold text-xl">Travail réalisé dans le cadre d’un exercice pédagogique<br/>
+    au département MMI de Montbéliard</h1>
+   <div class="flex gap-8">
+    <img src="/public/Vector.svg" alt="">
+    <img src="/public/MMI_dut_small_white 2.png" alt="">
+    <img src="/public/Vector-1.svg" alt="">
+   </div>
     </div> 
 </footer>
 </template>
+
+<style>
+.okine_bold {
+    font-family: 'made_okine_sans_personal_uBlk';
+}
+
+.okine_bold_outline {
+    font-family: 'made_okine_sans_persBdoutline';
+}
+
+.okine_medium {
+    font-family: 'made_okine_sans_personal_usMd';
+}
+
+.bandeau {
+    font-size: 42px;
+}
+
+.test {
+    color: red;
+}
+</style>
