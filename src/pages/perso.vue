@@ -6,5 +6,6 @@ defineProps<{
 }>();
 </script>
 <template>
+
   <FormMat :id="id" />
 </template>

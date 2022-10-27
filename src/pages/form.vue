@@ -2,9 +2,9 @@
 import log from "../components/log.vue";
 
 defineProps<{
-  id: string;
+    id: string;
 }>();
 </script>
 <template>
-  <log :id="id" />
+    <log :id="id" />
 </template>

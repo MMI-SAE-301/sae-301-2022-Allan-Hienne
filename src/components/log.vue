@@ -6,105 +6,126 @@ import bouton from "@/components/bouton.vue";
 </script>
 
 <template class="">
-  <div class="ml-56 border-0 w-2/3">
 
-
-    <div class="text-center bg-black rounded-3xl flex gap-10 items-center my-20">
-    <div class="">
-        <p class="font-cano uppercase text-3xl bold text-white">
-            Connectez-vous
-        </p>
-    <bouton libelle="Authentification avec Google" class="mb-3 mt-28 rounded-2xl w-96 h-14 bg-blue-600 text-white" @click="logingoogle()"/><br />
-    <bouton libelle="Authentification avec Facebook" class="border-2 m-3 rounded-sm w-96 h-14" @click="loginfacebook()"/><br />
-    <bouton libelle="Deconnexion" class="border-2 mt-3 mb-28 rounded-sm w-96 h-14" @click="logout()"/><br />
-    <label id="status"></label>
-</div>
-<img src="/public/Montre3.svg" alt="" class="w-540 my-4 rounded-3xl">
+<div class="flex">
+        <h1 class="uppercase bold bandeau okine_bold text-black">
+            Restez Connecté
+        </h1>
+        <h1 class="uppercase bold bandeau okine_bold_outline text-black">
+            Restez Connecté
+        </h1>
+        <h1 class="uppercase bold bandeau okine_bold text-black">
+            Restez Connecté
+        </h1>
+        <h1 class="uppercase bold bandeau okine_bold_outline text-black">
+            Restez Connecté
+        </h1>
     </div>
-    
-  </div>
+    <div class="flex justify-center ">
+
+
+        <div class="text-center flex bg-black px-8 py-4 justify-center gap-10 items-center mt-8 mb-16 rounded-3xl">
+            <div class="">
+                <p class="font-cano uppercase text-3xl bold text-white">
+                    Connectez-vous
+                </p>
+                <bouton libelle="Authentification avec Google"
+                    class="mb-3 mt-16 rounded-2xl w-96 h-14 bg-white text-black okine_regular" @click="logingoogle()">
+                    <img src="/public/google.svg" alt="google">
+                </bouton><br />
+                <bouton libelle="Authentification avec Facebook"
+                    class="mb-3 mt-4 rounded-2xl w-96 h-14 bg-blue-600 text-white okine_regular"
+                    @click="loginfacebook()" /><br />
+                <bouton libelle="Deconnexion" class="border-2 mt-3 mb-28 rounded-sm w-96 h-14" @click="logout()" />
+                <br />
+                <label id="status"></label>
+            </div>
+            <img src="/public/Montre3.svg" alt="" class="w-540 my-4 rounded-3xl">
+        </div>
+
+    </div>
 
 </template>
 
 <script>
 const SUPABASE_URL = "https://vflbstvxrtkxbbdrbewe.supabase.co";
 const SUPABASE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmbGJzdHZ4cnRreGJiZHJiZXdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjY3NjcxODAsImV4cCI6MTk4MjM0MzE4MH0.3g0-xEZ72u_aE7dUYA6t9XGagYHUYrWMh6q49dQ-KDk";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmbGJzdHZ4cnRreGJiZHJiZXdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjY3NjcxODAsImV4cCI6MTk4MjM0MzE4MH0.3g0-xEZ72u_aE7dUYA6t9XGagYHUYrWMh6q49dQ-KDk";
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 supabase.auth.onAuthStateChange((event, session) => {
-  if (session == null) {
-    document.getElementById("status").innerHTML = "You are not logged !!!";
-  } else {
-    // alert('session value: ' + JSON.stringify(session))
-    document.getElementById("status").innerHTML =
-      "You are logged with the email: " + session.user.email;
-  }
+    if (session == null) {
+        document.getElementById("status").innerHTML = "You are not logged !!!";
+    } else {
+        // alert('session value: ' + JSON.stringify(session))
+        document.getElementById("status").innerHTML =
+            "You are logged with the email: " + session.user.email;
+    }
 });
 
 export default {
-  methods: {
-    // this method allows to release the connexion with the Google account
-    async register() {
-      try {
-        const { user, session, error } = await supabase.auth.signUp({
-          email: this.email,
-          password: this.passwd,
-        });
-        if (error) throw error;
-        document.getElementById("status").innerHTML =
-          "Please validate the received email !";
-      } catch (error) {
-        alert(error.error_description || error.message);
-      }
-    },
-    async logout() {
-      try {
-        const { user, session, error } = await supabase.auth.signOut();
-        if (error) throw error;
-        document.getElementById("status").innerHTML = "You are disconnected !";
-      } catch (error) {
-        alert(error.error_description || error.message);
-      }
-    },
-    // this method allows to log in the system using Google provider
-    async logingoogle() {
-      try {
-        const { user, session, error } = await supabase.auth.signIn({
-          provider: "google",
-        });
-        if (error) throw error;
-      } catch (error) {
-        alert(error.error_description || error.message);
-      }
+    methods: {
+        // this method allows to release the connexion with the Google account
+        async register() {
+            try {
+                const { user, session, error } = await supabase.auth.signUp({
+                    email: this.email,
+                    password: this.passwd,
+                });
+                if (error) throw error;
+                document.getElementById("status").innerHTML =
+                    "Please validate the received email !";
+            } catch (error) {
+                alert(error.error_description || error.message);
+            }
+        },
+        async logout() {
+            try {
+                const { user, session, error } = await supabase.auth.signOut();
+                if (error) throw error;
+                document.getElementById("status").innerHTML = "You are disconnected !";
+            } catch (error) {
+                alert(error.error_description || error.message);
+            }
+        },
+        // this method allows to log in the system using Google provider
+        async logingoogle() {
+            try {
+                const { user, session, error } = await supabase.auth.signIn({
+                    provider: "google",
+                });
+                if (error) throw error;
+            } catch (error) {
+                alert(error.error_description || error.message);
+            }
+        },
+
+        async loginfacebook() {
+            try {
+                const { user, session, error } = await supabase.auth.signIn({
+                    provider: "facebook",
+                });
+                if (error) throw error;
+            } catch (error) {
+                alert(error.error_description || error.message);
+            }
+        },
     },
 
-    async loginfacebook() {
-      try {
-        const { user, session, error } = await supabase.auth.signIn({
-          provider: "facebook",
+    mounted() {
+        supabase.auth.onAuthStateChange(async (event, session) => {
+            if (event == "PASSWORD_RECOVERY") {
+                const newPassword = prompt(
+                    "What would you like your new password to be?"
+                );
+                const { data, error } = await supabase.auth.update({
+                    password: newPassword,
+                });
+                if (data) alert("Password updated successfully!");
+                if (error) alert("There was an error updating your password.");
+            }
         });
-        if (error) throw error;
-      } catch (error) {
-        alert(error.error_description || error.message);
-      }
     },
-  },
-
-  mounted() {
-    supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event == "PASSWORD_RECOVERY") {
-        const newPassword = prompt(
-          "What would you like your new password to be?"
-        );
-        const { data, error } = await supabase.auth.update({
-          password: newPassword,
-        });
-        if (data) alert("Password updated successfully!");
-        if (error) alert("There was an error updating your password.");
-      }
-    });
-  },
 };
 </script>
 
@@ -125,4 +146,7 @@ export default {
     font-size: 42px;
 }
 
+.okine_regular {
+    font-family: 'made_okine_sans_personal_usRg';
+}
 </style>
