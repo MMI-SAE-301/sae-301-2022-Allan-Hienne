@@ -6,8 +6,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { supabase } from "@/supabase";
 import MontreSvg from "../components/MontreSvg.vue";
-import type { names } from "@formkit/core";
-import type { label } from "@formkit/inputs";
+
 
 let user = supabase.auth.user()
 const router = useRouter();

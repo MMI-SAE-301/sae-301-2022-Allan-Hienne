@@ -31,7 +31,4 @@
     font-size: 42px;
 }
 
-.test {
-    color: red;
-}
 </style>

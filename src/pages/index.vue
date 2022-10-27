@@ -93,6 +93,7 @@ const montre = ref<Montre>(props.data ?? {});
 </div>
 
 </template>
+
 <style>
 .okine_bold {
     font-family: 'made_okine_sans_personal_uBlk';
@@ -104,5 +105,9 @@ const montre = ref<Montre>(props.data ?? {});
 
 .bandeau {
     font-size: 42px;
+}
+
+.okine_regular {
+    font-family: '';
 }
 </style>
