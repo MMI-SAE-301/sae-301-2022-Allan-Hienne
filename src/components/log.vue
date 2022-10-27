@@ -48,9 +48,9 @@ import bouton from "@/components/bouton.vue";
 </template>
 
 <script>
-const SUPABASE_URL = "https://vflbstvxrtkxbbdrbewe.supabase.co";
+const SUPABASE_URL = "https://oytowneljcufgxqfdydz.supabase.co";
 const SUPABASE_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmbGJzdHZ4cnRreGJiZHJiZXdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjY3NjcxODAsImV4cCI6MTk4MjM0MzE4MH0.3g0-xEZ72u_aE7dUYA6t9XGagYHUYrWMh6q49dQ-KDk";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95dG93bmVsamN1Zmd4cWZkeWR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjY3NDEwNzUsImV4cCI6MTk4MjMxNzA3NX0.iDuRsXz5gmnsksG4QVnI-2tIQs4VEv_5iIbbHpAAK28";
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 supabase.auth.onAuthStateChange((event, session) => {
