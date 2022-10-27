@@ -11,6 +11,9 @@ module.exports = {
       height:{
         '540': '540px',
       },    
+      fontFamily: {
+        "cano": "Cano"
+       },
 
     },
   },
