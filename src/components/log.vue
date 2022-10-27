@@ -31,7 +31,6 @@ import bouton from "@/components/bouton.vue";
                 </p>
                 <bouton libelle="Authentification avec Google"
                     class="mb-3 mt-16 rounded-2xl w-96 h-14 bg-white text-black okine_regular hover:bg-slate-200" @click="logingoogle()">
-                    <img src="/public/google.svg" alt="google">
                 </bouton><br />
                 <bouton libelle="Authentification avec Facebook"
                     class="mb-3 mt-4 rounded-2xl w-96 h-14 bg-blue-600 text-white okine_regular hover:bg-blue-800"
@@ -40,7 +39,7 @@ import bouton from "@/components/bouton.vue";
                 <br />
                 <label id="status"></label>
             </div>
-            <img src="/public/Montre3.svg" alt="" class="w-540 my-4 rounded-3xl">
+            <img src="../assets/img/Montre3.svg" alt="" class="w-540 my-4 rounded-3xl">
         </div>
 
     </div>

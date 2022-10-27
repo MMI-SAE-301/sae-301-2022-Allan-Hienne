@@ -57,7 +57,7 @@ const montre = ref<Montre>(props.data ?? {});
                     }}">
                     
                     
-                    <FormKit class="test" name="ecran" label="ECRAN" value="#FFFFFF" type="radio" :options="colors" legend-class="text-black okine_medium uppercase"
+                    <FormKit name="ecran" label="ECRAN" value="#FFFFFF" type="radio" :options="colors" legend-class="text-black okine_medium uppercase"
                         :sections-schema="{
                             inner: { $el: null },
                             decorator: { $el: null },

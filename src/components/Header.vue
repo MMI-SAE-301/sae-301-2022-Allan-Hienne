@@ -5,8 +5,8 @@
     <div id="app">
       <div class="">
         <div class="flex justify-between mx-8 mt-4" id="navbarColor01">
-          <router-link class="" to="/"><img src="/public/TikTakLogo.svg" alt="tiktak" class="w-56"></router-link>
-          <router-link class="" to="/form"><img src="/public/user.svg" alt="user" class="w-12"></router-link>
+          <router-link class="" to="/"><img src="../assets/img/TikTakLogo.svg" alt="tiktak" class="w-56"></router-link>
+          <router-link class="" to="/form"><img src="../assets/img/user.svg" alt="user" class="w-12"></router-link>
 
         </div>
       </div>
