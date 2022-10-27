@@ -54,7 +54,7 @@ const montre = ref<Montre>(props.data ?? {});
                         
                         
                     },
-                    }" :submit-attrs="{ classes: { input: 'p-2 px-12 rounded text-black okine_bold uppercase border-2 border-black hover:bg-black hover:text-white'
+                    }" :submit-attrs="{ classes: { input: 'p-2 px-12 rounded text-black okine_bold uppercase border-2 border-black hover:bg-black hover:text-white mb-16 mt-6'
                     }}">
                     
                     
