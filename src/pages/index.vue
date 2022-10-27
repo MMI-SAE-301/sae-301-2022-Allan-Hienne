@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Montre } from "@/types"
 import { colors } from "@/types"
-import { materiaux } from "@/types"
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { supabase } from "@/supabase";
@@ -62,8 +61,11 @@ const montre = ref<Montre>(props.data ?? {});
 }">
 
 <div class="flex justify-evenly mt-20">
-        <FormKit name="bracelet_sup" label="bracelet supérieur" value="#FFFFFF" type="radio" :options="colors"
-            legend-class="text-black okine_medium uppercase" :sections-schema="{
+    <div class="p-8 w-650">
+    <h1 class="font-cano mb-8 uppercase text-3xl bold">PERSONNALISEZ VOTRE MONTRE CONNECTé pour en obtenir une unique</h1>
+    <h1 class="okine_bold_outline text-2xl">Exemple de personnalisation</h1>
+        <FormKit name="bracelet_sup" label="bracelet supérieur" value="#FFFFFF" type="radio" :options="colors" legend-class="okine_bold uppercase text-lg" 
+            :sections-schema="{
                 inner: { $el: null },
                 decorator: { $el: null },
             }" input-class="peer sr-only" options-class="flex gap-1">
@@ -73,6 +75,8 @@ const montre = ref<Montre>(props.data ?? {});
                 <span class="sr-only">{{ context.option.label }}</span>
             </template>
         </FormKit>
+        <h1 class="ml-10 okine_bold uppercase text-2xl">Prix : 300€ ou 50€/MOIS</h1>
+    </div>
             <div class="carousel w-64">
                 <MontreSvg class="carousel-item w-64 mb-10" v-bind="montre" id="Montre" />
             </div>
