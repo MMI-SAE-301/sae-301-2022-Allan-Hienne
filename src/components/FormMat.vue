@@ -15,13 +15,13 @@ const props = defineProps<{
     data?: Montre;
     id?: string;
 }>();
-
+//@ts-ignore
 async function upsertMontre(dataForm, node) {
     const { data, error } = await supabase.from("Montre").upsert(dataForm);
     if (error) node.setErrors([error.message]);
     else {
         node.setErrors([]);
-        router.push({ name: "montre-edit-id", params: { id: data[0].id } });
+        router.push("/");
     }
 }
 
@@ -50,18 +50,21 @@ const montre = ref<Montre>(props.data ?? {});
                     classes: {
                         input: 'mb-4 p-1 bg-black',
                         label: 'text-grey-600',
-                        
-                        
+                
+                
                     },
-                    }" :submit-attrs="{ classes: { input: 'p-2 px-12 rounded text-black okine_bold uppercase border-2 border-black hover:bg-black hover:text-white mb-16 mt-6'
-                    }}">
-                    
-                    
-                    <FormKit name="ecran" label="ECRAN" value="#FFFFFF" type="radio" :options="colors" legend-class="text-black okine_medium uppercase"
-                        :sections-schema="{
+                }" :submit-attrs="{
+    classes: {
+        input: 'p-2 px-12 rounded text-black okine_bold uppercase border-2 border-black hover:bg-black hover:text-white mb-16 mt-6'
+    }
+}">
+
+
+                    <FormKit name="ecran" label="ECRAN" value="#FFFFFF" type="radio" :options="colors"
+                        legend-class="text-black okine_medium uppercase" :sections-schema="{
                             inner: { $el: null },
                             decorator: { $el: null },
-                        }" input-class="peer sr-only" options-class="flex gap-1" >
+                        }" input-class="peer sr-only" options-class="flex gap-1">
 
                         <template #label="context">
                             <div class="h-6 w-10 mt-2 rounded-lg border-2 peer-checked:border-black mb-6 hover:border-black"
@@ -69,8 +72,8 @@ const montre = ref<Montre>(props.data ?? {});
                             <span class="sr-only">{{ context.option.label }}</span>
                         </template>
                     </FormKit>
-                    <FormKit name="bracelet_sup" label="bracelet supérieur" value="#FFFFFF" type="radio" :options="colors" legend-class="text-black okine_medium uppercase"
-                        :sections-schema="{
+                    <FormKit name="bracelet_sup" label="bracelet supérieur" value="#FFFFFF" type="radio"
+                        :options="colors" legend-class="text-black okine_medium uppercase" :sections-schema="{
                             inner: { $el: null },
                             decorator: { $el: null },
                         }" input-class="peer sr-only" options-class="flex gap-1">
@@ -80,8 +83,8 @@ const montre = ref<Montre>(props.data ?? {});
                             <span class="sr-only">{{ context.option.label }}</span>
                         </template>
                     </FormKit>
-                    <FormKit name="bracelet_inf" label="bracelet inférieur" value="#FFFFFF" type="radio" :options="colors" legend-class="text-black okine_medium uppercase"
-                        :sections-schema="{
+                    <FormKit name="bracelet_inf" label="bracelet inférieur" value="#FFFFFF" type="radio"
+                        :options="colors" legend-class="text-black okine_medium uppercase" :sections-schema="{
                             inner: { $el: null },
                             decorator: { $el: null },
                         }" input-class="peer sr-only" options-class="flex gap-1">
@@ -91,8 +94,8 @@ const montre = ref<Montre>(props.data ?? {});
                             <span class="sr-only">{{ context.option.label }}</span>
                         </template>
                     </FormKit>
-                    <FormKit name="boitier_sup" label="boitier supérieur" value="#FFFFFF" type="radio" :options="colors" legend-class="text-black okine_medium uppercase"
-                        :sections-schema="{
+                    <FormKit name="boitier_sup" label="boitier supérieur" value="#FFFFFF" type="radio" :options="colors"
+                        legend-class="text-black okine_medium uppercase" :sections-schema="{
                             inner: { $el: null },
                             decorator: { $el: null },
                         }" input-class="peer sr-only" options-class="flex gap-1">
@@ -102,8 +105,8 @@ const montre = ref<Montre>(props.data ?? {});
                             <span class="sr-only">{{ context.option.label }}</span>
                         </template>
                     </FormKit>
-                    <FormKit name="boitier_inf" label="boitier inférieur" value="#FFFFFF" type="radio" :options="colors" legend-class="text-black okine_medium uppercase"
-                        :sections-schema="{
+                    <FormKit name="boitier_inf" label="boitier inférieur" value="#FFFFFF" type="radio" :options="colors"
+                        legend-class="text-black okine_medium uppercase" :sections-schema="{
                             inner: { $el: null },
                             decorator: { $el: null },
                         }" input-class="peer sr-only" options-class="flex gap-1">
@@ -113,8 +116,9 @@ const montre = ref<Montre>(props.data ?? {});
                             <span class="sr-only">{{ context.option.label }}</span>
                         </template>
                     </FormKit>
-                    <FormKit name="id_materiaux" label="Matériaux de la montre" value="#000000" legend-class="text-black okine_medium uppercase"
-                        type="radio" :options="materiaux" :sections-schema="{
+                    <FormKit name="id_materiaux" label="Matériaux de la montre" value="#000000"
+                        legend-class="text-black okine_medium uppercase" type="radio" :options="materiaux"
+                        :sections-schema="{
                             inner: { $el: null },
                             decorator: { $el: null },
                         }" input-class="peer sr-only" options-class="flex gap-1">
