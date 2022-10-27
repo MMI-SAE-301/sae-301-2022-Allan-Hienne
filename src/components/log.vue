@@ -1,6 +1,6 @@
-<script setup>
-import { createClient } from "@supabase/supabase-js";
-import { SupabaseAuthClient } from "@supabase/supabase-js/dist/module/lib/SupabaseAuthClient";
+<script setup lang="ts">
+//@ts-nocheck
+import {supabase, user} from '../supabase'
 import bouton from "@/components/bouton.vue";
 
 </script>
@@ -29,13 +29,9 @@ import bouton from "@/components/bouton.vue";
                 <p class="font-cano uppercase text-3xl bold text-white">
                     Connectez-vous
                 </p>
-                <bouton libelle="Authentification avec Google"
-                    class="mb-3 mt-16 rounded-2xl w-96 h-14 bg-white text-black okine_regular hover:bg-slate-200" @click="logingoogle()">
-                </bouton><br />
-                <bouton libelle="Authentification avec Facebook"
-                    class="mb-3 mt-4 rounded-2xl w-96 h-14 bg-blue-600 text-white okine_regular hover:bg-blue-800"
-                    @click="loginfacebook()" /><br />
-                <bouton libelle="Deconnexion" class="border-2 mt-3 mb-28 rounded-2xl w-36 h-14 text-white okine_regular hover:bg-white hover:text-black" @click="logout()" />
+                <bouton libelle="Authentification avec Google" class="mb-3 mt-16 rounded-2xl w-96 h-14 bg-white text-black okine_regular hover:bg-slate-200" @pointerdown="supabase.auth.signIn({ provider: 'google'})" /><br />
+    <bouton libelle="Authentification avec Facebook" class="mb-3 mt-4 rounded-2xl w-96 h-14 bg-blue-600 text-white okine_regular hover:bg-blue-800" @pointerdown="supabase.auth.signIn({ provider: 'facebook'})"  /><br />
+    <bouton libelle="Deconnexion" class="border-2 mt-3 mb-28 rounded-2xl w-36 h-14 text-white okine_regular hover:bg-white hover:text-black" @pointerdown="supabase.auth.signOut()" /><br />
                 <br />
                 <label id="status"></label>
             </div>
@@ -45,88 +41,6 @@ import bouton from "@/components/bouton.vue";
     </div>
 
 </template>
-
-<script>
-const SUPABASE_URL = "https://oytowneljcufgxqfdydz.supabase.co";
-const SUPABASE_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95dG93bmVsamN1Zmd4cWZkeWR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjY3NDEwNzUsImV4cCI6MTk4MjMxNzA3NX0.iDuRsXz5gmnsksG4QVnI-2tIQs4VEv_5iIbbHpAAK28";
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-supabase.auth.onAuthStateChange((event, session) => {
-    if (session == null) {
-        document.getElementById("status").innerHTML = "You are not logged !!!";
-    } else {
-        // alert('session value: ' + JSON.stringify(session))
-        document.getElementById("status").innerHTML =
-            "You are logged with the email: " + session.user.email;
-    }
-});
-
-export default {
-    methods: {
-        // this method allows to release the connexion with the Google account
-        async register() {
-            try {
-                const { user, session, error } = await supabase.auth.signUp({
-                    email: this.email,
-                    password: this.passwd,
-                });
-                if (error) throw error;
-                document.getElementById("status").innerHTML =
-                    "Please validate the received email !";
-            } catch (error) {
-                alert(error.error_description || error.message);
-            }
-        },
-        async logout() {
-            try {
-                const { user, session, error } = await supabase.auth.signOut();
-                if (error) throw error;
-                document.getElementById("status").innerHTML = "You are disconnected !";
-            } catch (error) {
-                alert(error.error_description || error.message);
-            }
-        },
-        // this method allows to log in the system using Google provider
-        async logingoogle() {
-            try {
-                const { user, session, error } = await supabase.auth.signIn({
-                    provider: "google",
-                });
-                if (error) throw error;
-            } catch (error) {
-                alert(error.error_description || error.message);
-            }
-        },
-
-        async loginfacebook() {
-            try {
-                const { user, session, error } = await supabase.auth.signIn({
-                    provider: "facebook",
-                });
-                if (error) throw error;
-            } catch (error) {
-                alert(error.error_description || error.message);
-            }
-        },
-    },
-
-    mounted() {
-        supabase.auth.onAuthStateChange(async (event, session) => {
-            if (event == "PASSWORD_RECOVERY") {
-                const newPassword = prompt(
-                    "What would you like your new password to be?"
-                );
-                const { data, error } = await supabase.auth.update({
-                    password: newPassword,
-                });
-                if (data) alert("Password updated successfully!");
-                if (error) alert("There was an error updating your password.");
-            }
-        });
-    },
-};
-</script>
 
 <style>
 .okine_bold {

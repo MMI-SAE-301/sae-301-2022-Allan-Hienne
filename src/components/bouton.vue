@@ -2,11 +2,7 @@
     <button>{{libelle}}</button>
 </template>
 
-<script>
-export default {
-  props: {
-    libelle: String,
-  },
-  components: {},
-};
+<script setup lang="ts">defineProps({
+  libelle: String,
+});
 </script>
