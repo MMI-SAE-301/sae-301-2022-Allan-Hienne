@@ -24,8 +24,8 @@ import bouton from "@/components/bouton.vue";
     <div class="flex justify-center ">
 
 
-        <div class="text-center flex bg-black px-8 py-4 justify-center gap-10 items-center mt-8 mb-16 rounded-3xl">
-            <div class="">
+        <div class="flex bg-black px-8 py-4 justify-center gap-10 items-center mt-8 mb-16 rounded-3xl">
+            <div>
                 <p class="font-cano uppercase text-3xl bold text-white">
                     Connectez-vous
                 </p>
@@ -36,7 +36,7 @@ import bouton from "@/components/bouton.vue";
                 <bouton libelle="Authentification avec Facebook"
                     class="mb-3 mt-4 rounded-2xl w-96 h-14 bg-blue-600 text-white okine_regular"
                     @click="loginfacebook()" /><br />
-                <bouton libelle="Deconnexion" class="border-2 mt-3 mb-28 rounded-sm w-96 h-14" @click="logout()" />
+                <bouton libelle="Deconnexion" class="border-2 mt-3 mb-28 rounded-2xl w-36 h-14 text-white okine_regular hover:bg-white hover:text-black" @click="logout()" />
                 <br />
                 <label id="status"></label>
             </div>
