@@ -30,11 +30,11 @@ import bouton from "@/components/bouton.vue";
                     Connectez-vous
                 </p>
                 <bouton libelle="Authentification avec Google"
-                    class="mb-3 mt-16 rounded-2xl w-96 h-14 bg-white text-black okine_regular" @click="logingoogle()">
+                    class="mb-3 mt-16 rounded-2xl w-96 h-14 bg-white text-black okine_regular hover:bg-slate-200" @click="logingoogle()">
                     <img src="/public/google.svg" alt="google">
                 </bouton><br />
                 <bouton libelle="Authentification avec Facebook"
-                    class="mb-3 mt-4 rounded-2xl w-96 h-14 bg-blue-600 text-white okine_regular"
+                    class="mb-3 mt-4 rounded-2xl w-96 h-14 bg-blue-600 text-white okine_regular hover:bg-blue-800"
                     @click="loginfacebook()" /><br />
                 <bouton libelle="Deconnexion" class="border-2 mt-3 mb-28 rounded-2xl w-36 h-14 text-white okine_regular hover:bg-white hover:text-black" @click="logout()" />
                 <br />
